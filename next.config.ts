@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // media
+  images: {
+    domains: ["images.unsplash.com", "media1.tenor.com"],
+  },
 };
 
 export default nextConfig;

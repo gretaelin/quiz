@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "path": "app"
+    },
+    {
+      "path": "assets"
+    },
+    {
+      "path": "data"
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/.git": true
+    },
+    "files.associations": {
+      "*.env": "dotenv"
+    }
+  }
+}
