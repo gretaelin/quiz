@@ -22,7 +22,7 @@ body {
   /* dog pattern */
   background-image: url("../assets/dog.png");
   background-repeat: repeat;
-  background-size: 50px auto;
+  background-size: 20px auto;
   background-repeat: space; /* 👈 adds space between dogs */
   background-position: center center;
 }
