@@ -3,7 +3,10 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // media
   images: {
-    domains: ["images.unsplash.com", "media1.tenor.com"],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "media1.tenor.com" },
+    ],
   },
 };
 
