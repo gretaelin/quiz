@@ -140,6 +140,7 @@ export default function HomePage(): JSX.Element {
                   alt={`Image for question ${currentIndex + 1}`}
                   fill
                   className="object-contain"
+                  key={currentQuestion.id}
                 />
               </div>
             )}
