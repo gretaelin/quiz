@@ -105,6 +105,7 @@ export default function HomePage(): JSX.Element {
   const isLastQuestion = currentIndex === totalQuestions - 1;
 
   const percentage = Math.round((score / totalQuestions) * 100);
+  const resultDog = getResultDog(percentage);
 
   return (
     <main className="min-h-screen flex items-center justify-center px-4 py-8">
@@ -130,6 +131,18 @@ export default function HomePage(): JSX.Element {
             <h1 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4">
               {currentQuestion.question}
             </h1>
+
+            {/* Image */}
+            {currentQuestion.image && (
+              <div className="w-full h-64 mb-6 relative rounded-2xl overflow-hidden bg-gray-100">
+                <Image
+                  src={currentQuestion.image}
+                  alt={`Image for question ${currentIndex + 1}`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            )}
 
             {/* Options */}
             <div className="space-y-3 mb-6">
@@ -211,10 +224,9 @@ export default function HomePage(): JSX.Element {
           <>
             {/* Result screen */}
             <div className="text-center mb-6">
-              {/* Put your dog GIF into /public as dog-celebrate.gif */}
               <Image
-                src={getResultDog(percentage).src}
-                alt={getResultDog(percentage).alt}
+                src={resultDog.src}
+                alt={resultDog.alt}
                 className="w-40 h-40 mx-auto mb-4 object-contain"
                 width={160}
                 height={160}
@@ -222,12 +234,10 @@ export default function HomePage(): JSX.Element {
               <h2 className="text-2xl font-semibold text-gray-900 mb-2">
                 Tvoj výsledok
               </h2>
-              <p className="text-sm text-gray-500 mb-4">
+              <p className="text-sm text-gray-500 mb-1">
                 {score} z {totalQuestions} otázok ({percentage}%)
               </p>
-              <p className="text-base text-gray-800">
-                {getResultDog(percentage).text}
-              </p>
+              <p className="text-base text-gray-800">{resultDog.text}</p>
             </div>
 
             <div className="flex justify-center mb-6">
@@ -238,6 +248,90 @@ export default function HomePage(): JSX.Element {
               >
                 Skúsiť kvíz znova
               </button>
+            </div>
+
+            {/* Answer summary */}
+            <div className="border-t pt-4 mt-2 mb-6">
+              <h3 className="text-sm font-semibold text-gray-800 mb-3">
+                Prehľad tvojich odpovedí
+              </h3>
+              <ul className="space-y-3 max-h-72 overflow-y-auto text-sm">
+                {questions.map((q, index) => {
+                  const userAnswerIndex = answers[index];
+                  const correctIndex = q.correctIndex;
+                  const isCorrect = userAnswerIndex === correctIndex;
+
+                  const userAnswerText =
+                    userAnswerIndex !== null
+                      ? q.options[userAnswerIndex]
+                      : "Nezodpovedané";
+
+                  const correctAnswerText = q.options[correctIndex];
+
+                  return (
+                    <li
+                      key={q.id}
+                      className={`rounded-2xl border px-3 py-2 text-left bg-white/80`}
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-medium text-gray-500">
+                          Otázka {index + 1}
+                        </span>
+                        <span
+                          className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                            userAnswerIndex === null
+                              ? "bg-gray-100 text-gray-500"
+                              : isCorrect
+                              ? "bg-emerald-100 text-emerald-700"
+                              : "bg-rose-100 text-rose-700"
+                          }`}
+                        >
+                          {userAnswerIndex === null
+                            ? "Nezodpovedané"
+                            : isCorrect
+                            ? "Správne"
+                            : "Nesprávne"}
+                        </span>
+                      </div>
+
+                      <p className="text-gray-900 text-xs sm:text-sm mb-1">
+                        {q.question}
+                      </p>
+
+                      <p className="text-xs text-gray-700">
+                        <span className="font-semibold">Tvoja odpoveď: </span>
+                        <span
+                          className={
+                            userAnswerIndex === null
+                              ? "italic text-gray-500"
+                              : isCorrect
+                              ? "text-emerald-700"
+                              : "text-rose-700"
+                          }
+                        >
+                          {userAnswerIndex !== null
+                            ? `${String.fromCharCode(
+                                65 + userAnswerIndex
+                              )}. ${userAnswerText}`
+                            : "—"}
+                        </span>
+                      </p>
+
+                      {!isCorrect && (
+                        <p className="text-xs text-gray-700 mt-0.5">
+                          <span className="font-semibold">
+                            Správna odpoveď:{" "}
+                          </span>
+                          <span className="text-emerald-700">
+                            {String.fromCharCode(65 + correctIndex)}.{" "}
+                            {correctAnswerText}
+                          </span>
+                        </p>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
 
             {/* Attempts history */}

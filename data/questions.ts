@@ -3,6 +3,7 @@
 export interface Question {
   id: number;
   question: string;
+  image?: string;
   options: string[];
   correctIndex: number;
 }
@@ -10,94 +11,67 @@ export interface Question {
 export const questions: Question[] = [
   {
     id: 1,
-    question: "Čo sú konejšivé signály u psa?",
+    question: "Čo sa odohráva medzi týmito dvoma psami?",
+    image:
+      "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/bd18/6116041/0a0d8f497a69/animals-08-00131-g001.jpg",
     options: [
-      "Signály, ktorými pes ukazuje, že chce útočiť",
-      "Signály, ktorými sa pes snaží upokojiť seba alebo druhého",
-      "Signály, ktoré pes používa len pri hre",
-      "Signály, ktoré používajú iba šteňatá",
-    ],
-    correctIndex: 1,
-  },
-  {
-    id: 2,
-    question:
-      "Pes si opakovane olizuje ňufák, aj keď neje. Čo to môže znamenať?",
-    options: [
-      "Je vždy hladný",
-      "Je mu zima",
-      "Je nervózny alebo sa snaží upokojiť situáciu",
-      "Je pripravený na beh",
+      "Začínajú sa spolu hrať",
+      "Samica pozýva mladšieho psa bližšie",
+      "Malý pes testuje samicu a situácia je napätá",
+      "Oba psy sú úplne uvoľnené",
     ],
     correctIndex: 2,
   },
   {
-    id: 3,
-    question:
-      "Pes sa otočí bokom alebo odvracia hlavu od iného psa. Čo tým často komunikuje?",
+    id: 2,
+    question: "Aký je vzťah medzi týmito dvoma psami?",
+    image:
+      "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/bd18/6116041/0773f401ba0d/animals-08-00131-g004.jpg",
     options: [
-      "Chce sa biť",
-      "Ignoruje druhého psa",
-      "Chce, aby ho majiteľ pohladkal",
-      "Snaží sa upokojiť napätie a ukázať, že nechce konflikt",
+      "Sú napätí a chystajú sa na konflikt",
+      "Málo sa poznajú, sledujú sa s nedôverou",
+      "Medzi psami je skôr neutrálna interakcia",
+      "Psy sú uvoľnené a majú dobrý vzťah",
     ],
     correctIndex: 3,
   },
   {
-    id: 4,
-    question: "Zívanie u psa môže byť konejšivý signál najmä vtedy, keď:",
+    id: 3,
+    question:
+      "Čo znamená správanie, keď jeden pes chytí druhého okolo papule ?",
+    image:
+      "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/bd18/6116041/c573f7949655/animals-08-00131-g008.jpg",
     options: [
-      "Práve vstal zo spánku",
-      "Je v stresovej situácii alebo napätí",
-      "Je po jedle",
-      "Počúva povel 'sadni'",
+      "Ide o jemné hravé správanie alebo ritualizované správanie",
+      "Pes sa chystá zaútočiť",
+      "Je to znak extrémneho strachu",
+      "Pes sa snaží druhého úplne ignorovať",
+    ],
+    correctIndex: 0,
+  },
+  {
+    id: 4,
+    question: "Čo podľa vás znamená správanie čierneho samca na tomto obrázku?",
+    image:
+      "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/bd18/6116041/a99f8221ae3f/animals-08-00131-g003.jpg",
+    options: [
+      "Chce sa hrať",
+      "Žiada, aby sa samica priblížila — prejav náklonnosti",
+      "Vyjadruje hrozbu a chce dominovať",
+      "Je vystrašený",
     ],
     correctIndex: 1,
   },
   {
     id: 5,
     question:
-      "Pes sa pomaly oblizuje a pozerá bokom, keď sa k nemu niekto skláňa. Čo tým môže naznačovať?",
+      "Pes pri pohľade na teba zdvihne jedno obočie. Čo tým chce povedať?",
     options: [
-      "Že má rád, keď sa nad ním ľudia skláňajú",
-      "Že chce okamžite odísť preč",
-      "Že je mu to nepríjemné a snaží sa situáciu upokojiť",
-      "Že má bolesť zubov",
+      "Premýšľa o zmysle života",
+      "Zvažuje, či si zaslúžiš jeho pozornosť",
+      "Skúma tvoj tón a náladu",
+      "Vyhodnocuje pachovú stopu vo vzduchu",
     ],
     correctIndex: 2,
-  },
-  {
-    id: 6,
-    question: "Ktoré správanie môže byť konejšivým signálom medzi psami?",
-    options: [
-      "Pomalé obchádzanie do oblúka",
-      "Priame rýchle vybehnutie k druhému psovi",
-      "Dlhotrvajúci priamy pohľad do očí",
-      "Štekanie priamo pri tvári druhého psa",
-    ],
-    correctIndex: 0,
-  },
-  {
-    id: 7,
-    question: "Prečo je dôležité, aby človek poznal konejšivé signály psa?",
-    options: [
-      "Aby vedel psa rýchlejšie unaviť",
-      "Aby vedel lepšie čítať, kedy je psovi nepríjemne a predísť konfliktom",
-      "Aby naučil psa viac trikov",
-      "Aby pes menej žral",
-    ],
-    correctIndex: 1,
-  },
-  {
-    id: 8,
-    question:
-      "Pes si začne čuchať zem, aj keď tam nič nie je, uprostred napätej situácie. Čo to môže byť?",
-    options: [
-      "Normálne hľadanie pamlsku",
-      "Konejšivý signál – presmerovanie pozornosti, upokojenie",
-      "Príznak choroby",
-      "Nuda",
-    ],
-    correctIndex: 1,
   },
 ];

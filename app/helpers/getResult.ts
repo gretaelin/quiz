@@ -19,7 +19,7 @@ const getResultDog = (percentage: number) => {
     return {
       src: getRandom(happyGifs),
       alt: "Tancujúci psík",
-      text: "Perfektné! Si expert na konejšivé signály 🐶✨",
+      text: "Psia reč je tvoj druhý jazyk 🐶✨",
     };
   }
 
