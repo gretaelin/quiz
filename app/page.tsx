@@ -134,12 +134,17 @@ export default function HomePage(): JSX.Element {
 
             {/* Image */}
             {currentQuestion.image && (
-              <div className="w-full h-64 mb-6 relative rounded-2xl overflow-hidden bg-gray-100">
+              <div
+                key={currentQuestion.id}
+                style={currentQuestion.wrapperStyle || { height: 300 }}
+                className="w-full mb-6 relative rounded-2xl overflow-hidden bg-gray-100"
+              >
                 <Image
                   src={currentQuestion.image}
                   alt={`Image for question ${currentIndex + 1}`}
                   fill
                   className="object-contain"
+                  style={currentQuestion.imageStyle || {}}
                   key={currentQuestion.id}
                 />
               </div>

@@ -1,9 +1,13 @@
 // data/questions.ts
 
+import { CSSProperties } from "react";
+
 export interface Question {
   id: number;
   question: string;
   image?: string;
+  imageStyle?: CSSProperties;
+  wrapperStyle?: CSSProperties;
   options: string[];
   correctIndex: number;
 }
@@ -52,6 +56,8 @@ export const questions: Question[] = [
   {
     id: 4,
     question: "Čo podľa vás znamená správanie čierneho samca na tomto obrázku?",
+    imageStyle: { objectPosition: "top", objectFit: "cover" }, // crop the image to chow the top part
+    wrapperStyle: { aspectRatio: "16/12" }, // set aspect ratio to 16:9
     image:
       "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/bd18/6116041/a99f8221ae3f/animals-08-00131-g003.jpg",
     options: [
